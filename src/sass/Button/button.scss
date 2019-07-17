@@ -1,0 +1,82 @@
+.button {
+    @include button-reset();
+    
+    margin-bottom: 5px;
+    padding: 20px 35px;
+    
+    color: white;
+    border-radius: 25px;
+}
+
+.button--blue-border {
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $blue--border;
+}
+
+.button--red {
+    font-weight: bold;
+    background-color: $red;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 8px gray;
+    }
+}
+
+
+@media (max-width: $large) {
+    .button--toggle-menu {
+        position: relative;
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+        
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 4px;
+            transform: translate(-50%, -50%) rotate(0deg);
+            
+            background: white;
+        }
+
+        &::before {
+            box-shadow: 0 10px 0 0 white,
+                        0 -10px 0 0 white;
+            
+            transition: transform 1s, box-shadow 0.5s;
+        }
+
+        &::after {
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+        }
+    }
+
+    .close {
+        &::before {
+            transform: translate(-50%, -50%) rotate(45deg);
+            box-shadow: 0 0 0 0 white,
+                        0 0 0 0 white;
+            
+            transition: transform 1s, box-shadow 0.5s;
+        }
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(-45deg);
+            opacity: 1;
+            transition: transform 1s, opacity 1s;
+        }
+    }
+}

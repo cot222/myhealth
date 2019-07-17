@@ -1,0 +1,32 @@
+@import "variables.scss";
+@import "mixin.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    position: relative;
+    margin: 0;
+    
+    font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    width: $large;
+    margin: auto;
+}
+
+@import "Button/button.scss";
+
+@import "Header/header.scss";
+@import "Slider/slider.scss";
+@import "Introduction/introduction.scss";
+
+
+@media (max-width: $large) {
+    .container {
+        width: 100%;
+    }
+}
